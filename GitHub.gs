@@ -17,7 +17,7 @@ function request(path, pagenation=1, debug=0) {
   }
   var result = undefined;
   let url = 'https://api.github.com' + path;
-  if(pagenation=0){
+  if(pagenation==0){
     const response = UrlFetchApp.fetch(url, {
       headers: {
         Authorization: 'Bearer ' + token
@@ -25,6 +25,11 @@ function request(path, pagenation=1, debug=0) {
     });
     result = JSON.parse(response.getContentText());
   }else{
+    if(path.indexOf('?') != -1){
+      path = path + '&per_page=100';
+    }else{
+      path = path + '?per_page=100';
+    }
     result = [];
     while(true){
       const response = UrlFetchApp.fetch(url, {
