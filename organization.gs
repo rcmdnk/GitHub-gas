@@ -18,7 +18,11 @@ function getStarRepos(type="all", sheet_name='All') {
     Logger.log(m.login);
     info.push(get_star_info(m, type, 3));
   });
-  info.sort(function(x, y){return y[1] - x[1];});
+  info.sort(function(x, y){return y[0] - x[0];});
+  values = [];
+  info.forEach(function(i){
+    values.push(i[1]);
+  });
   const columns = ['User', 'Stars', 'Repos',
                    'Stats', 'Languages',
                    '1stRepo', '1stLang', '1stStars',
@@ -29,8 +33,9 @@ function getStarRepos(type="all", sheet_name='All') {
                       300, 100, 100,
                       300, 100, 100,
                       300, 100, 100];
-  let sheet = getSheet(sheet_name, columns, col_widths);
-  sheet.getRange(sheet.getLastRow() + 1, 1, info.length, columns.length).setValues(info);
+  const alignments = {'B2:B' : 'right', 'H2:H': 'right', 'K2:K': 'right', 'N2:N': 'right'};
+  let sheet = getSheet(sheet_name, columns, col_widths, alignments);
+  sheet.getRange(sheet.getLastRow() + 1, 1, values.length, columns.length).setValues(values);
   Logger.log('end');
 }
 

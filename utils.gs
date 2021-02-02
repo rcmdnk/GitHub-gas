@@ -1,4 +1,11 @@
-function getSheet(name, cols=[], col_widths=[], formatA='0') {
+function aaa(){
+  ss =SpreadsheetApp.getActive();
+  sheet = ss.getSheetByName('OwnerRepo');
+  range = sheet.getRange('B2:B');
+  range.setHorizontalAlignment('right');
+}
+
+function getSheet(name, cols=[], col_widths=[], alignments={}) {
   const ss = SpreadsheetApp.getActive();
   let sheet = ss.getSheetByName(name);
   if (!sheet) {
@@ -20,7 +27,10 @@ function getSheet(name, cols=[], col_widths=[], formatA='0') {
       sheet.setColumnWidth(i+1, col_widths[i]);
     }
   });
-  sheet.getRange('A:A').setNumberFormat(formatA);
+  Object.keys(alignments).forEach(function(key) {
+    sheet.getRange(key).setHorizontalAlignment(alginments[key]); 
+  });
+
   // Need additional row to froze the row
   sheet.insertRowsAfter(1, 1);
   sheet.setFrozenRows(1);
