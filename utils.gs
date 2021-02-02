@@ -26,3 +26,16 @@ function getSheet(name, cols=[], col_widths=[], formatA='0') {
   sheet.setFrozenRows(1);
   return sheet;
 }
+
+function copySheets(){
+  const ss = SpreadsheetApp.getActive();
+  const sheets = [ss.getSheetByName('OwnerRepo'), ss.getSheetByName('MemberRepo')];
+  const replica = SpreadsheetApp.openById(REPLICA);
+  sheets.forEach(function(s){
+    const name = s.getName();
+    const s_dest = replica.getSheetByName(name);
+    if(s_dest)replica.deleteSheet(s_dest);
+    const new_s = s.copyTo(replica);
+    new_s.setName(name);
+  });
+}

@@ -19,5 +19,8 @@ function get_star_info(user, type='All', n_repos=3){
       Array.prototype.push.apply(user_info['star_repos'], ["", "", ""]);
     }
   }
-  return ['=HYPERLINK("' + user.url + '", "' + user.login + '")', user_info['stars'], user_info['repos']].concat(user_info['star_repos']);
+  return ['=HYPERLINK("' + user.url + '", "' + user.login + '")', user_info['stars'], user_info['repos'],
+          '=HYPERLINK("https://github-readme-stats.vercel.app/api?username=' + user.login + '", "' + user.login + '")',
+          '=HYPERLINK("https://github-readme-stats.vercel.app/api/top-langs/?langs_count=10&username=' + user.login + '", "' + user.login + '")',
+         ].concat(user_info['star_repos']);
 }

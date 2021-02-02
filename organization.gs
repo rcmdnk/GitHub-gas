@@ -20,10 +20,12 @@ function getStarRepos(type="all", sheet_name='All') {
   });
   info.sort(function(x, y){return y[1] - x[1];});
   const columns = ['User', 'Stars', 'Repos',
+                   'Stats', 'Languages',
                    '1stRepo', '1stLang', '1stStars',
                    '2ndRepo', '2ndLang', '2ndStars',
                    '3rdRepo', '3rdLang', '3rdStars'];
   const col_widths = [100, 100, 100,
+                      100, 100,
                       300, 100, 100,
                       300, 100, 100,
                       300, 100, 100];
