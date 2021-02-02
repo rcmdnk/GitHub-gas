@@ -33,7 +33,7 @@ function getStarRepos(type="all", sheet_name='All') {
                       300, 100, 100,
                       300, 100, 100,
                       300, 100, 100];
-  const alignments = {'B2:B' : 'right', 'H2:H': 'right', 'K2:K': 'right', 'N2:N': 'right'};
+  const alignments = {'B1:B' : 'right', 'H1:H': 'right', 'K1:K': 'right', 'N1:N': 'right'};
   let sheet = getSheet(sheet_name, columns, col_widths, alignments);
   sheet.getRange(sheet.getLastRow() + 1, 1, values.length, columns.length).setValues(values);
   Logger.log('end');

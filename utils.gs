@@ -1,10 +1,3 @@
-function aaa(){
-  ss =SpreadsheetApp.getActive();
-  sheet = ss.getSheetByName('OwnerRepo');
-  range = sheet.getRange('B2:B');
-  range.setHorizontalAlignment('right');
-}
-
 function getSheet(name, cols=[], col_widths=[], alignments={}) {
   const ss = SpreadsheetApp.getActive();
   let sheet = ss.getSheetByName(name);
@@ -28,7 +21,7 @@ function getSheet(name, cols=[], col_widths=[], alignments={}) {
     }
   });
   Object.keys(alignments).forEach(function(key) {
-    sheet.getRange(key).setHorizontalAlignment(alginments[key]); 
+    sheet.getRange(key).setHorizontalAlignment(alignments[key]); 
   });
 
   // Need additional row to froze the row
