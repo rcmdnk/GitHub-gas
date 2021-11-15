@@ -1,9 +1,6 @@
 /**
- * Withings API Ref: https://developer.withings.com/oauth2/
- */
-
-/**
- * Authorizes and makes a request to the Withings API.
+ * Authorizes and makes a request to the GitHub API.
+ * Ref: https://github.com/googleworkspace/apps-script-oauth2/blob/master/samples/GitHub.gs
  */
 function request(path, pagenation=1, debug=0) {
   let token = TOKEN;
@@ -89,7 +86,7 @@ function getService() {
 
       // Set scope
       .setScope('read:org')
-  
+
       // Set the property store where authorized tokens should be persisted.
       .setPropertyStore(PropertiesService.getUserProperties());
 }
