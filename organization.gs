@@ -16,7 +16,7 @@ function getStarRepos(type="all", sheet_name='All') {
   let info = [];
   members.forEach(function(m){
     Logger.log(m.login);
-    info.push(get_star_info(m, type, 3));
+    info.push(getStarInfo(m, type, 3));
   });
   info.sort(function(x, y){return y[0] - x[0];});
   values = [];

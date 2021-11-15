@@ -1,4 +1,4 @@
-function get_star_info(user, type='All', n_repos=3){
+function getStarInfo(user, type='All', n_repos=3){
   let user_info = {'stars': 0, 'repos': 0};
   const repos = request('/users/' + user.login + '/repos?type=' + type);
   let star_repos = [];
