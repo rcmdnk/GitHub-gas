@@ -10,7 +10,7 @@ Google Apps Script to retrieve GitHub user information in Organization.
 * Add library: `1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF` (OAuth2)
 * Set parameters in **params.gs**
 
-For parameters, refer the followings.
+For parameters, refer to the following.
 
 ### (CLIENT_ID, CLIENT_SECRET**) or TOKEN
 
@@ -18,9 +18,9 @@ You can choose (**CLIENT_ID**, **CLIENT_SECRET**) or **TOKEN** for the authoriza
 
 #### CLIENT_ID, CLIENT_SECRET
 
-Note: (**CLIENT_ID**, **CLIENT_SECRET**) requires authorization process at the first time. The script shows error and URL to be accessed. You need to open the URL and authorize with your account.
+Note: (**CLIENT_ID**, **CLIENT_SECRET**) requires authorization process at the first time. The script shows the error and URL to be accessed. You need to open the URL and authorize it with your account.
 
-Note: (**CLIENT_ID**, **CLIENT_SECRET**) method can obtain only public users in the Organization. Users who set the Organization hidden (this is default setting) will not be obtained.
+Note: (**CLIENT_ID**, **CLIENT_SECRET**) method can obtain only public users in the Organization. Users who set the Organization hidden (this is the default setting) will not be obtained.
 
 
 Go to [GitHub Apps](https://github.com/settings/apps) and make New GitHub App.
@@ -55,7 +55,7 @@ Set your organization name.
 
 If you want to share the result, it is better to prepare another Sheets
 to hide parameters (ClientID/Secret or TOKEN),
-because the public access to your sheets will allow to see scripts, too.
+because the public access to your sheets will allow seeing scripts, too.
 
 For this case, make new Sheets and get ID, and set ID to `REPLICA`,
 then execute **GitHub.gs/copySheets()** function.
@@ -74,7 +74,7 @@ Execute **organization.gs/getMemberRepos()**.
 
 Execute **organization.gs/getPullRequests()**.
 
-Note: This function can get information of only a few users by hitting the rate limit.
+Note: This function can get information from only a few users by hitting the rate limit.
 
 It may be possible to get all information by using [GitHub GraphQL API - GitHub Docs](https://docs.github.com/en/graphql)
 
