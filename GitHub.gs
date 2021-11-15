@@ -3,14 +3,16 @@
  * Ref: https://github.com/googleworkspace/apps-script-oauth2/blob/master/samples/GitHub.gs
  */
 function request(path, pagenation=1, debug=0) {
-  let token = TOKEN;
-  if(token == undefined){
+  let token;
+  if (typeof TOKEN !== 'string' || TOKEN == ''){
     const service = getService();
     if (!service.hasAccess()) {
       throw new Error('Open the following URL and re-run the script: '
                       + service.getAuthorizationUrl());
     }
     token = service.getAccessToken();
+  }else{
+    token = TOKEN;
   }
   var result = undefined;
   let url = 'https://api.github.com' + path;
