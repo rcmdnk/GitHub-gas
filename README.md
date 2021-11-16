@@ -12,7 +12,7 @@ Google Apps Script to retrieve GitHub user information in Organization.
 
 For parameters, refer to the following.
 
-### (CLIENT_ID, CLIENT_SECRET**) or TOKEN
+### (CLIENT_ID, CLIENT_SECRET) or TOKEN
 
 You can choose (**CLIENT_ID**, **CLIENT_SECRET**) or **TOKEN** for the authorization.
 
